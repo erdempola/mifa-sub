@@ -1,4 +1,4 @@
-# Date/Time: 2026-09-06 / 12:47 MSK
+# Date/Time: 2026-09-06 / 12:48 MSK
 # Часть 2/2, узлов в этой части: 91 (всего: 190)
 vless://f0fb771d-ebff-478d-89ad-3490bfd7ee8b@5.42.96.76:443?type=tcp&headerType=none&security=reality&encryption=none&sni=ruself.yandex-api.com&fp=chrome&pbk=c8IEc_c_QBmI5YAwILoVH0xw2xC4AJgJDKEYKcmKogo&sid=7f2e9c4b1a8d6e55&flow=xtls-rprx-vision#%F0%9F%87%B7%F0%9F%87%BA%20%20Russia%20%20%5B22%5D%20%20MIFA
 vless://92089155-6602-4122-86d4-fe6de20e8c4d@78.159.247.205:443?type=tcp&headerType=none&security=reality&encryption=none&sni=kinopoisk.ru&fp=firefox&pbk=NsTRRl4ofT64w0VwmkpOWE8yfiXLcEqgwgi-9SGnXTA&sid=a1b2c3d4&flow=xtls-rprx-vision#%F0%9F%87%B7%F0%9F%87%BA%20%20Russia%20%20%5B23%5D%20%20MIFA
