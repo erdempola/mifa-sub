@@ -1,0 +1,31 @@
+name: Update MIFA subscription
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch fresh subscription
+        id: fetch
+        run: python3 update_mifa.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- mifa.txt; then
+            echo "No changes"
+          else
+            git config user.name "mifa-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add mifa.txt
+            git commit -m "Update MIFA subscription $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
