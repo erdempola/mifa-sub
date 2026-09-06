@@ -1,4 +1,4 @@
-# Date/Time: 2026-09-06 / 19:52 MSK
+# Date/Time: 2026-09-06 / 20:07 MSK
 # Часть 1/2, узлов в этой части: 99 (всего: 185)
 vless://c6037cf7-d931-4027-af06-6bfb0f10684c@188.72.103.3:443?type=xhttp&headerType=none&security=tls&encryption=none&sni=cdnapiv3.streamru7.net&fp=chrome&alpn=h2%2Chttp%2F1.1&path=%2Fapi%2Fv80%2Fuptodown%2F&host=cdnapiv3.streamru7.net#%F0%9F%87%A6%F0%9F%87%AA%20%20United%20Arab%20Emirates%20%20%5B01%5D%20%20MIFA
 vless://0764541b-3e57-4b47-954b-51e996fae5fc@xs12.mcufa.pro:443?type=xhttp&headerType=none&security=tls&encryption=none&sni=xs12.mcufa.pro&fp=firefox&path=%2Fapi%2Fv1%2Fminecraft178%2Fsync%2F#%F0%9F%87%A6%F0%9F%87%AA%20%20United%20Arab%20Emirates%20%20%5B02%5D%20%20MIFA
