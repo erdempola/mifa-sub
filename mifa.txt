@@ -1,4 +1,4 @@
-# Date/Time: 2026-09-06 / 21:36 MSK
+# Date/Time: 2026-09-06 / 21:37 MSK
 # Количество: 185
 vless://0764541b-3e57-4b47-954b-51e996fae5fc@xs13.mcufa.pro:443?type=xhttp&headerType=none&security=tls&encryption=none&sni=xs13.mcufa.pro&fp=chrome&path=%2Fapi%2Fv1%2Fminecraft178%2Fsync%2F&host=xs13.mcufa.pro#%F0%9F%87%A6%F0%9F%87%AA%20%20United%20Arab%20Emirates%20%20%5B01%5D%20%20MIFA
 vless://0764541b-3e57-4b47-954b-51e996fae5fc@xs12.mcufa.pro:443?type=xhttp&headerType=none&security=tls&encryption=none&sni=xs12.mcufa.pro&fp=firefox&path=%2Fapi%2Fv1%2Fminecraft178%2Fsync%2F&host=xs12.mcufa.pro#%F0%9F%87%A6%F0%9F%87%AA%20%20United%20Arab%20Emirates%20%20%5B02%5D%20%20MIFA
