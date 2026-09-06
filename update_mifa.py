@@ -2,6 +2,7 @@
 import re
 import sys
 import os
+import time
 import glob
 import base64
 import datetime
@@ -21,17 +22,23 @@ HEADERS = {
 }
 
 
-def http_get(url, timeout=30):
-    try:
-        req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            if resp.status != 200:
-                print(f"GET {url} -> HTTP {resp.status}", file=sys.stderr)
-                return None
-            return resp.read().decode("utf-8", errors="ignore")
-    except Exception as e:
-        print(f"GET {url} failed: {e}", file=sys.stderr)
-        return None
+def http_get(url, timeout=30, retries=2, retry_delay=4):
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                if resp.status != 200:
+                    print(f"GET {url} -> HTTP {resp.status} (попытка {attempt}/{retries})", file=sys.stderr)
+                    last_err = f"HTTP {resp.status}"
+                else:
+                    return resp.read().decode("utf-8", errors="ignore")
+        except Exception as e:
+            print(f"GET {url} failed: {e} (попытка {attempt}/{retries})", file=sys.stderr)
+            last_err = str(e)
+        if attempt < retries:
+            time.sleep(retry_delay)
+    return None
 
 
 def extract_link(body):
