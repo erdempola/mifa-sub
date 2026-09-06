@@ -65,7 +65,7 @@ def main():
             continue
         if looks_valid(decoded):
             lines = [l for l in decoded.strip().split("\n") if l.strip()]
-            now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d / %H:%M UTC")
+            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=3))).strftime("%Y-%m-%d / %H:%M MSK")
             header = (
                 f"# Date/Time: {now}\n"
                 f"# Количество: {len(lines)}\n"
