@@ -9,7 +9,12 @@ import datetime
 import urllib.request
 
 CHANNEL = "mifa_world"
+# Постоянная ссылка на редактируемый ежедневно пост с промо-линком —
+# содержимое лежит в <meta property="og:description">, отдаётся статически,
+# не зависит от общего веб-превью канала (t.me/s/...), которое MIFA иногда отключает.
+PERMALINK = f"https://t.me/{CHANNEL}/1310/27737"
 LINK_PATTERN = re.compile(r"https?://mifa\.world/[a-zA-Z0-9/_-]+")
+OG_DESC_PATTERN = re.compile(r'<meta property="og:description" content="(.*?)">', re.DOTALL)
 SOURCES = [
     f"https://t.me/s/{CHANNEL}",
     f"https://telegram.me/s/{CHANNEL}",
@@ -39,6 +44,22 @@ def http_get(url, timeout=30, retries=2, retry_delay=4):
         if attempt < retries:
             time.sleep(retry_delay)
     return None
+
+
+def extract_link_from_permalink(html):
+    m = OG_DESC_PATTERN.search(html)
+    if not m:
+        return None
+    text = (
+        m.group(1)
+        .replace("&amp;", "&")
+        .replace("&lt;", "<")
+        .replace("&gt;", ">")
+        .replace("&quot;", '"')
+        .replace("&#39;", "'")
+    )
+    m2 = LINK_PATTERN.search(text)
+    return m2.group(0) if m2 else None
 
 
 def extract_link(body):
@@ -81,29 +102,44 @@ def write_chunks(lines, now, total):
     return len(chunks)
 
 
-def main():
+def find_fresh_link():
+    # Основной способ: постоянная ссылка на пост, содержимое в og:description.
+    html = http_get(PERMALINK)
+    if html:
+        link = extract_link_from_permalink(html)
+        if link:
+            print(f"Found link via permalink {PERMALINK}: {link}", file=sys.stderr)
+            return link
+        print("Permalink ответил, но ссылка mifa.world не найдена в og:description", file=sys.stderr)
+
+    # Запасной вариант: старые мосты (менее надёжные, могут банить IP или зависеть от /s/-виджета).
     for src in SOURCES:
         body = http_get(src)
         if not body:
             continue
         link = extract_link(body)
-        if not link:
-            continue
-        print(f"Found link via {src}: {link}", file=sys.stderr)
+        if link:
+            print(f"Found link via {src}: {link}", file=sys.stderr)
+            return link
+    return None
+
+
+def main():
+    link = find_fresh_link()
+    if link:
         raw = http_get(link)
-        if not raw:
-            continue
-        try:
-            decoded = base64.b64decode(raw.strip()).decode("utf-8", errors="ignore")
-        except Exception:
-            continue
-        if looks_valid(decoded):
-            lines = [l for l in decoded.strip().split("\n") if l.strip()]
-            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=3))).strftime("%Y-%m-%d / %H:%M MSK")
-            write_full_file(lines, now, len(lines))
-            n_chunks = write_chunks(lines, now, len(lines))
-            print(f"Subscription updated successfully: {len(lines)} nodes in {n_chunks} chunk file(s)", file=sys.stderr)
-            return 0
+        if raw:
+            try:
+                decoded = base64.b64decode(raw.strip()).decode("utf-8", errors="ignore")
+            except Exception:
+                decoded = None
+            if decoded and looks_valid(decoded):
+                lines = [l for l in decoded.strip().split("\n") if l.strip()]
+                now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=3))).strftime("%Y-%m-%d / %H:%M MSK")
+                write_full_file(lines, now, len(lines))
+                n_chunks = write_chunks(lines, now, len(lines))
+                print(f"Subscription updated successfully: {len(lines)} nodes in {n_chunks} chunk file(s)", file=sys.stderr)
+                return 0
     print("Could not refresh subscription from any source", file=sys.stderr)
     return 1
 
