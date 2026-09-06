@@ -2,6 +2,7 @@
 import re
 import sys
 import base64
+import datetime
 import urllib.request
 
 CHANNEL = "mifa_world"
@@ -63,8 +64,14 @@ def main():
         except Exception:
             continue
         if looks_valid(decoded):
+            lines = [l for l in decoded.strip().split("\n") if l.strip()]
+            now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d / %H:%M UTC")
+            header = (
+                f"# Date/Time: {now}\n"
+                f"# Количество: {len(lines)}\n"
+            )
             with open("mifa.txt", "w") as f:
-                f.write(decoded)
+                f.write(header + decoded)
             print("Subscription updated successfully", file=sys.stderr)
             return 0
     print("Could not refresh subscription from any source", file=sys.stderr)
