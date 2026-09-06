@@ -1,4 +1,4 @@
-# Date/Time: 2026-09-07 / 01:07 MSK
+# Date/Time: 2026-09-07 / 01:10 MSK
 # Часть 2/2: 81 / 180
 vless://1291195a-ec3b-45bf-9381-9e2fce710813@185.141.227.180:2053?type=xhttp&headerType=none&security=tls&encryption=none&sni=dismissaltree.net&fp=firefox&path=%2Fapi%2Fv1%2Fupload&host=dismissaltree.net#%F0%9F%87%B7%F0%9F%87%BA%20%20Russia%20%20%5B03%5D%20%20MIFA
 vless://1291195a-ec3b-45bf-9381-9e2fce710813@78.159.250.84:8443?type=xhttp&headerType=none&security=tls&encryption=none&sni=summerculture.net&fp=firefox&path=%2Fapi%2Fv1%2Fupload&host=summerculture.net#%F0%9F%87%B7%F0%9F%87%BA%20%20Russia%20%20%5B04%5D%20%20MIFA
