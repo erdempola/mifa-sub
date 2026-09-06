@@ -18,11 +18,12 @@ HEADERS = {
 }
 
 
-def http_get(url, timeout=15):
+def http_get(url, timeout=30):
     try:
         req = urllib.request.Request(url, headers=HEADERS)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             if resp.status != 200:
+                print(f"GET {url} -> HTTP {resp.status}", file=sys.stderr)
                 return None
             return resp.read().decode("utf-8", errors="ignore")
     except Exception as e:
