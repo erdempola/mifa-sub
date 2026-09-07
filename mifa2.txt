@@ -1,4 +1,4 @@
-# Date/Time: 2026-09-07 / 17:34 MSK
+# Date/Time: 2026-09-07 / 17:37 MSK
 # Часть 2/2: 15 / 114
 vless://7e26fd8f-d75a-473d-84ba-9f4e3f47d086@104.21.69.218:443?type=ws&headerType=none&security=tls&encryption=none&sni=8-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr&fp=chrome&path=%2F8qMLgNapWf6SBxo8fhQlVPYO&host=8-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr#%F0%9F%87%BA%F0%9F%87%B8%20%20USA%20%20%5B21%5D%20%20MIFA
 vless://7e26fd8f-d75a-473d-84ba-9f4e3f47d086@172.67.198.236:443?type=ws&headerType=none&security=tls&encryption=none&sni=4-m20.c8e0fc76-a6e4-4464-86b7-703a4f338c3a.kdns.fr&fp=chrome&path=%2F8qMLgNapWf6SBxo8fhQlVPYO&host=4-m20.c8e0fc76-a6e4-4464-86b7-703a4f338c3a.kdns.fr#%F0%9F%87%BA%F0%9F%87%B8%20%20USA%20%20%5B22%5D%20%20MIFA
