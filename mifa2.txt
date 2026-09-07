@@ -1,4 +1,4 @@
-# Date/Time: 2026-09-07 / 20:22 MSK
+# Date/Time: 2026-09-07 / 20:37 MSK
 # Часть 2/2: 20 / 119
 vless://abd1c29a-94cb-4648-8d1e-5baae9d2a807@172.236.233.59:443?type=tcp&headerType=none&security=reality&encryption=none&sni=www.cloudflare.com&fp=firefox&pbk=oTMDLwY2hloBfA7ShzVsrFhjL4QXR6mY32B93rMLxV0&sid=525e0ffc773f48ba&flow=xtls-rprx-vision#%F0%9F%87%BA%F0%9F%87%B8%20%20USA%20%20%5B21%5D%20%20MIFA
 vless://6429d27e-a7d4-4e04-ae57-e88243fbbfe3@freshjuniper.download:443?type=tcp&headerType=none&security=reality&encryption=none&sni=localhost&fp=firefox&pbk=F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I#%F0%9F%87%BA%F0%9F%87%B8%20%20USA%20%20%5B22%5D%20%20MIFA
